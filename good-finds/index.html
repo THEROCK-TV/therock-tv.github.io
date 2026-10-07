@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Good Finds</title>
+<style>
+:root{--navy:#10243e;--blue:#1473e6;--line:#e5e7eb;--muted:#6b7280;--green:#198754}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#111827;background:#fff}
+.wrap{max-width:1180px;margin:auto;padding:0 18px}
+.top{background:var(--navy);color:white;font-size:13px}.top .wrap{height:34px;display:flex;align-items:center;justify-content:space-between}
+header{border-bottom:1px solid var(--line);background:#fff}.head{display:grid;grid-template-columns:240px 1fr auto;gap:22px;align-items:center;padding:18px}
+.logo{font-size:32px;font-weight:800}.logo span{color:var(--blue)}.tag{font-size:12px;color:var(--muted);font-weight:400}
+.search{display:flex;height:46px;border:1px solid #ccd2d9;border-radius:9px;overflow:hidden}.search input{flex:1;border:0;padding:0 15px;font-size:16px;outline:none}.search button{border:0;background:var(--blue);color:white;padding:0 24px;font-weight:700}
+.cartlink{cursor:pointer;font-weight:700;position:relative}.badge{background:#ef2d2d;color:#fff;border-radius:999px;padding:2px 7px;font-size:12px;margin-left:5px}
+nav{border-bottom:1px solid var(--line)}nav .wrap{display:flex;gap:28px;align-items:center;height:54px;overflow:auto;white-space:nowrap;font-size:14px}.all{background:var(--blue);color:#fff;padding:11px 16px;border-radius:8px}
+.hero{background:linear-gradient(90deg,#eef2f6,#fafbfc);padding:24px 0}.hero .wrap{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px}.hero h1{font-size:46px;margin:0 0 6px}.hero h2{font-size:28px;margin:0 0 8px}.hero p{color:var(--muted);font-size:18px}.hero img{width:100%;max-height:250px;object-fit:contain}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:18px 0 30px}.cat{border:1px solid var(--line);border-radius:12px;background:#f9fafb;text-align:center;padding:20px 8px;font-size:13px}.cat b{display:block;font-size:25px;margin-bottom:8px}
+.section{display:flex;align-items:center;justify-content:space-between}.section h2{font-size:28px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.pic{height:230px;background:#fafafa;display:flex;align-items:center;justify-content:center;padding:16px;position:relative}.pic img{max-width:100%;max-height:100%;object-fit:contain}.best{position:absolute;top:10px;left:10px;background:#e32626;color:#fff;padding:5px 8px;border-radius:7px;font-size:12px}
+.body{padding:15px}.brand{font-size:12px;color:var(--muted)}.title{font-weight:700;line-height:1.35;min-height:44px}.price{font-size:26px;font-weight:800;margin-top:9px}.stock{font-size:13px;color:var(--green);font-weight:700;margin:5px 0 12px}.qty{display:flex;align-items:center;gap:8px;margin-bottom:10px}.qtybox{margin-left:auto;display:flex;border:1px solid #d6dbe2;border-radius:8px;overflow:hidden}.qtybox button{width:34px;height:34px;border:0;background:#fff;font-size:18px}.qtybox input{width:42px;border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);text-align:center}
+.add{width:100%;background:var(--blue);color:#fff;border:0;padding:13px;border-radius:8px;font-size:15px;font-weight:700}.note{font-size:12px;color:#b42318;min-height:16px;margin-top:6px}
+.placeholder{font-size:62px}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:50}.overlay.show{display:block}.drawer{position:fixed;right:-420px;top:0;width:400px;max-width:92vw;height:100vh;background:#fff;z-index:60;box-shadow:-8px 0 30px rgba(0,0,0,.18);padding:20px;transition:.25s}.drawer.open{right:0}.dhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.close{font-size:28px;border:0;background:none}.item{padding:16px 0;border-bottom:1px solid var(--line)}.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:9px}.remove{border:0;background:none;color:#b42318}.total{font-size:24px;font-weight:800;margin:18px 0}.checkout{width:100%;background:#1faa59;color:white;border:0;padding:14px;border-radius:8px;font-weight:800;font-size:16px}.empty{text-align:center;color:var(--muted);padding:30px 0}
+footer{margin-top:45px;background:#f6f7f9;border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+@media(max-width:900px){.head{grid-template-columns:1fr auto}.search{grid-column:1/-1}.hero .wrap{grid-template-columns:1fr}.cats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.logo{font-size:27px}.hero h1{font-size:36px}.cats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>🚚 Fast & Reliable Service</span><span>Quality Products • Great Prices</span></div></div>
+<header><div class="wrap head">
+<div><div class="logo">Good <span>Finds</span></div><div class="tag">Everyday Essentials, Great Prices</div></div>
+<div class="search"><input id="search" placeholder="Search for products, brands and more..." oninput="filterProducts()"><button onclick="filterProducts()">Search</button></div>
+<div class="cartlink" onclick="openCart()">🛒 Cart <span class="badge" id="badge">0</span></div>
+</div></header>
+<nav><div class="wrap"><span class="all">☰ All Categories</span><span>Computers & Accessories</span><span>Electronics</span><span>Home & Office</span><span>Gaming</span><span>Printers & Scanners</span><span>Mobile Accessories</span></div></nav>
+<section class="hero"><div class="wrap">
+<div><div style="letter-spacing:2px;font-size:12px;font-weight:700;color:#667085">COMPUTERS & ACCESSORIES</div><h1>Logitech MK120</h1><h2>Wired Keyboard and Mouse Combo</h2><p>Reliable. Comfortable. Great Value.</p></div>
+<img src="https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk120/gallery/mk120-gallery-1-new.png" alt="Logitech MK120">
+</div></section>
+<main class="wrap">
+<div class="cats">
+<div class="cat"><b>💻</b>Computers</div><div class="cat"><b>🎧</b>Electronics</div><div class="cat"><b>🏠</b>Home & Office</div><div class="cat"><b>🎮</b>Gaming</div><div class="cat"><b>🖨️</b>Printers</div><div class="cat"><b>📱</b>Mobile</div>
+</div>
+<div class="section"><h2>Featured Products</h2></div>
+<div class="grid" id="grid">
+<article class="card" data-name="logitech mk120 keyboard mouse">
+<div class="pic"><span class="best">Best Seller</span><img src="https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/combos/mk120/gallery/mk120-gallery-1-new.png" alt="Logitech MK120"></div>
+<div class="body"><div class="brand">Logitech</div><div class="title">MK120 Wired Keyboard and Mouse Combo</div><div class="price">$20.00</div><div class="stock">In Stock — 4 available</div>
+<div class="qty"><span>Quantity</span><div class="qtybox"><button onclick="changeQty(-1)">−</button><input id="qty" value="1" readonly><button onclick="changeQty(1)">+</button></div></div>
+<button class="add" onclick="addToCart()">🛒 Add to Cart</button><div class="note" id="note"></div></div></article>
+<article class="card" data-name="monitor computer"><div class="pic"><div class="placeholder">🖥️</div></div><div class="body"><div class="brand">Coming Soon</div><div class="title">Computer Monitor</div><div class="price">—</div><div class="stock">More products coming soon</div><button class="add" disabled style="opacity:.45">Add to Cart</button></div></article>
+<article class="card" data-name="printer office"><div class="pic"><div class="placeholder">🖨️</div></div><div class="body"><div class="brand">Coming Soon</div><div class="title">Office Printer</div><div class="price">—</div><div class="stock">More products coming soon</div><button class="add" disabled style="opacity:.45">Add to Cart</button></div></article>
+<article class="card" data-name="headphones electronics"><div class="pic"><div class="placeholder">🎧</div></div><div class="body"><div class="brand">Coming Soon</div><div class="title">Headphones & Electronics</div><div class="price">—</div><div class="stock">More products coming soon</div><button class="add" disabled style="opacity:.45">Add to Cart</button></div></article>
+</div>
+</main>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer"><div class="dhead"><h2>Shopping Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart"></div><div id="bottom" style="display:none"><div class="total">Total: $<span id="total">0.00</span></div><button class="checkout" onclick="checkout()">Checkout on WhatsApp</button></div></aside>
+<footer><div class="wrap">© 2026 Good Finds • WhatsApp +20 122 414 2081</div></footer>
+<script>
+var stock=4, price=20, selected=1, cartQty=Number(localStorage.getItem("gf_cart")||0);
+function changeQty(d){selected=Math.max(1,Math.min(stock,selected+d));document.getElementById("qty").value=selected}
+function addToCart(){var n=document.getElementById("note");if(cartQty+selected>stock){n.textContent="Only "+stock+" available. You already have "+cartQty+" in your cart.";return}cartQty+=selected;localStorage.setItem("gf_cart",cartQty);n.textContent="";render();openCart()}
+function render(){document.getElementById("badge").textContent=cartQty;var c=document.getElementById("cart"),b=document.getElementById("bottom");if(!cartQty){c.innerHTML='<div class="empty">Your cart is empty.</div>';b.style.display="none";return}c.innerHTML='<div class="item"><b>Logitech MK120 Wired Keyboard and Mouse Combo</b><div class="row"><span>$20.00 each</span><div class="qtybox"><button onclick="cartChange(-1)">−</button><input value="'+cartQty+'" readonly><button onclick="cartChange(1)">+</button></div></div><div class="row"><strong>Subtotal: $'+(price*cartQty).toFixed(2)+'</strong><button class="remove" onclick="removeCart()">Remove</button></div></div>';document.getElementById("total").textContent=(price*cartQty).toFixed(2);b.style.display="block"}
+function cartChange(d){cartQty=Math.max(0,Math.min(stock,cartQty+d));localStorage.setItem("gf_cart",cartQty);render()}
+function removeCart(){cartQty=0;localStorage.removeItem("gf_cart");render()}
+function openCart(){document.getElementById("drawer").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("drawer").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+function checkout(){if(!cartQty)return;var t=price*cartQty;var m=encodeURIComponent("Hello, I want to order from Good Finds.\n\nLogitech MK120 Wired Keyboard and Mouse Combo\nQuantity: "+cartQty+"\nPrice: $20.00 each\nTotal: $"+t.toFixed(2)+"\nCondition: New");window.open("https://wa.me/201224142081?text="+m,"_blank")}
+function filterProducts(){var q=document.getElementById("search").value.toLowerCase().trim();document.querySelectorAll("#grid .card").forEach(function(x){x.style.display=!q||x.dataset.name.indexOf(q)>=0?"":"none"})}
+render();
+</script>
+</body></html>
